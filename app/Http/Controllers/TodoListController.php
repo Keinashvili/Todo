@@ -31,33 +31,48 @@ class TodoListController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        $validated = validator(\request()->all(),
-            [
-                'content' => 'required'
-            ]
-        );
+//        $validated = validator(request()->all(),
+//            [
+//                'content' => 'required'
+//            ]
+//        );
+//
+//        if ($validated->passes())
+//        {
+//            TodoList::create();
+//
+//            return Redirect::to(URL::previous())->with('message', 'You have added a task!');
+//        }
+//
+//        return Redirect::to(URL::previous())->withErrors($validated->errors());
 
-        if ($validated->passes())
-        {
-            TodoList::create();
+            $data = $request->validate([
+               'content' => 'required'
+            ]);
 
-            return Redirect::to(URL::previous())->with('message', 'You have added a task!');
-        }
+                if ($data)
+                {
 
-        return Redirect::to(URL::previous())->withErrors($validated->errors());
+                    TodoList::create($data);
+                    return back()->with('message', 'You have added a task!');
+                }
+
+        return back()->withErrors($data->errors());
+
     }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TodoList  $todolist
+     * @param  \App\Models\TodoList  $todolists
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TodoList $todolist)
+    public function destroy(TodoList $todolists)
     {
-        $todolist ->delete();
+        $todolists ->delete();
         return back();
     }
 }

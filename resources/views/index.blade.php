@@ -27,10 +27,10 @@
         </div>
         @if(count($todolists))
         <div>
-            @foreach($todolists as $todolist)
+            @foreach($todolists as $item)
             <div class="flex mb-4 items-center">
-                <p class="w-full text-grey-darkest" >{{ $todolist->content }}</p>
-              <form class="flex mb-4 items-center" action="{{ route('destroy', $todolist->id) }}" method="POST">
+                <p class="w-full text-grey-darkest" >{{ $item->content }}</p>
+              <form class="flex mb-4 items-center" action="{{ route('destroy', $item->id) }}" method="POST">
                     @csrf
                     @method('delete')
                 <button type="submit" onclick="return confirm('Are you sure?')" class="mt-4 border-2 border-red-700 p-2 ml-2 rounded text-black hover:text-white hover:bg-red-700">Remove</button>
