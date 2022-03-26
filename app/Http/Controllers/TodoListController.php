@@ -33,34 +33,20 @@ class TodoListController extends Controller
      */
     public function store(Request $request)
     {
-//        $validated = validator(request()->all(),
-//            [
-//                'content' => 'required'
-//            ]
-//        );
-//
-//        if ($validated->passes())
-//        {
-//            TodoList::create();
-//
-//            return Redirect::to(URL::previous())->with('message', 'You have added a task!');
-//        }
-//
-//        return Redirect::to(URL::previous())->withErrors($validated->errors());
+        $todo = new TodoList();
+        $todo->task = $request['task'];
+        $data = $request->validate([
+            'content' => 'required'
 
-            $data = $request->validate([
-               'content' => 'required'
-            ]);
+        ]);
 
-                if ($data)
-                {
+        if ($data)
+        {
+            $todo->save();
+            return back()->with('message', 'You have added a task!');
+        }
 
-                    TodoList::create($data);
-                    return back()->with('message', 'You have added a task!');
-                }
-
-        return back()->withErrors($data->errors());
-
+        return back()->withErrors($todo->errors());
     }
 
 
@@ -70,9 +56,9 @@ class TodoListController extends Controller
      * @param  \App\Models\TodoList  $todolists
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TodoList $todolists)
+    public function destroy($id)
     {
-        $todolists ->delete();
+        TodoList::destroy($id);
         return back();
     }
 }

@@ -29,7 +29,7 @@
         <div>
             @foreach($todolists as $item)
             <div class="flex mb-4 items-center">
-                <p class="w-full text-grey-darkest" >{{ $item->content }}</p>
+                <p class="w-full text-grey-darkest" >{{ $item->task }}</p>
               <form class="flex mb-4 items-center" action="{{ route('destroy', $item->id) }}" method="POST">
                     @csrf
                     @method('delete')
