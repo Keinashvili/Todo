@@ -23,7 +23,7 @@
                     <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
                         {{ config('app.name', 'Laravel') }}
                     </a>
-                    <a href="https://twitter.com/knyttneve" class="text-cool-gray-100 ml-1 italic underline">Source Code</a>
+                    <a href="https://github.com/Keinashvili/Todo" class="text-cool-gray-100 ml-1 italic underline">Source Code</a>
 
                 </div>
                 <nav class="space-x-4 text-gray-100 text-sm sm:text-base">

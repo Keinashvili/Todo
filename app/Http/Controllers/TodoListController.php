@@ -35,8 +35,9 @@ class TodoListController extends Controller
     {
         $todo = new TodoList();
         $todo->task = $request['task'];
-        $data = $request->validate([
-            'content' => 'required'
+        $data = $request->validate
+        ([
+            'task' => 'required'
 
         ]);
 
