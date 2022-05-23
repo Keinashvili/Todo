@@ -1,6 +1,7 @@
 # Blog Laravel website
 ##  Used Dependencies
 
+
 ```
 Laravel Framework v8.75
 
@@ -10,6 +11,11 @@ MySQL v5.7.33
 ```
 
 ## Project setup
+### Go to cloned directory
+```
+cd <directory_name>
+```
+### Run composer install
 ```
 composer install
 ```
