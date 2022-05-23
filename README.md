@@ -1,45 +1,50 @@
-# Blog and News Vue.js 3 Cli application using Firebase as BasS
+# ToDo Laravel web Application
 ##  Used Dependencies
 
 ```
-Firebase v9.6.1
+Laravel Framework v8.75
 
-Quill v1.3.7
+Tailwindcss/ui v1.8
 
-Quill Image Resize Module v3.0.0
+MySQL v5.7.33
 
-Vue 3.0.0
-
-Vue Router 4.0.0-0
-
-Vue3 Editor 0.1.0-alpha.3
-
-Vuex 4.0.0
-
-Dart-sass 1.26.5
-
-Vue SVG Loader 0.16.0
 ```
 
 ## Project setup
 ```
-npm install
+composer install
 ```
 
-### Compiles and hot-reloads for development
+### Copy .env.example file
 ```
-npm run serve
+cp .env.example .env
+
 ```
 
-### Compiles and minifies for production
+### Generate key
 ```
-npm run build
-```
+php artisan key:generate
 
-### Lints and fixes files
 ```
-npm run lint
+### Before migrateing, turn on database/MySQL server
+### If your database connection is different edit 
 ```
+DB_HOST
+DB_USERNAME
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+### Migrate Database
+
+```
+php artisan migrate
+
+```
+### Run server
+```
+php artisan serve
+
+or
+
+php artisan serve --port 8080
+
+```
