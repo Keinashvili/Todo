@@ -1,4 +1,4 @@
-# ToDo Laravel web Application
+# Blog Laravel website
 ##  Used Dependencies
 
 ```
@@ -24,7 +24,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 ### Before migrateing, turn on database/MySQL server
-### If your database connection is different edit 
+### If your database connection is different edit these fields in .env file
 ```
 DB_HOST
 DB_USERNAME
